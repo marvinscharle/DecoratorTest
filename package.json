@@ -1,0 +1,14 @@
+{
+  "name": "decorator-test",
+  "version": "1.0.0",
+  "description": "Typescript Decorators test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marvin Scharle",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.0.0"
+  }
+}
