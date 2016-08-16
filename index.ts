@@ -1,3 +1,6 @@
 import {TestClass} from './classes/test-class';
 
-new TestClass('Test');
+let x: TestClass = new TestClass('Test');
+console.log(x.myProperty);
+console.log(x.otherProperty);
+x.myProperty = 'new Value';
