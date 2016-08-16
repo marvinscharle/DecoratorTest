@@ -1,19 +1,19 @@
-let propertyAccessor: PropertyDecorator = (target: Object, propertyKey: string) => {
-    console.log("Defining Property", propertyKey, "for", target);
+import {TestClass} from './test-class';
+
+function  propertyAccessor (target: Object, propertyKey: string, hashKey?: string) {
     Object.defineProperty(target, propertyKey, {
         get: function () {
-            console.log("Read Access to", propertyKey);
+            return (<TestClass>this).hash[hashKey||propertyKey];
         },
         set: function (newVal: any) {
-            console.log("Write Access to", propertyKey, "setting new Val to", newVal);
+            (<TestClass>this).hash[hashKey||propertyKey] = newVal;
         }
     });
-};
+}
 
 function propertyAccessorFactory (hashKey?: string): PropertyDecorator {
     return (target: Object, propertyKey: string | symbol) => {
-        propertyAccessor(target, propertyKey);
-        console.log("Hash Key:", hashKey||propertyKey);
+        propertyAccessor(target, propertyKey.toString(), hashKey);
     }
 }
 
